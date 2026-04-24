@@ -7,6 +7,7 @@ sys.path.append(os.path.abspath("src"))
 from ingestion.ingest_data import save_bronze
 from transformation.clean_data import transform
 from serving.aggregate_data import aggregate
+from utils.data_quality import validate_silver_data
 
 
 def run_pipeline():
@@ -17,6 +18,9 @@ def run_pipeline():
 
     print("Running Silver layer (transformation)...")
     transform()
+
+    print("Validating data quality...")
+    validate_silver_data()
 
     print("Running Gold layer (aggregation)...")
     aggregate()
