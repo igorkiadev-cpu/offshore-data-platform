@@ -1,6 +1,16 @@
-# Offshore Data Platform
+# Offshore Data Platform | End-to-End Data Engineering Pipeline
 
 End-to-end data engineering project simulating offshore industrial operations using Medallion Architecture (Bronze, Silver, Gold).
+
+---
+
+## 📌 Key Features
+
+- End-to-end data pipeline using Medallion Architecture  
+- Data validation between layers  
+- Airflow DAG for orchestration  
+- Container-ready with Docker  
+- Cloud-ready execution via Google Colab  
 
 ---
 
@@ -76,7 +86,7 @@ You can run this project directly in Google Colab without any local setup:
 
 ```python
 !pip install polars pandas pyarrow
-!git clone https://github.com/SEU_USUARIO/offshore-data-platform.git
+!git clone https://github.com/igorkiadev-cpu/offshore-data-platform.git
 %cd offshore-data-platform
 !python src/pipeline.py
 ```
