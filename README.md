@@ -41,6 +41,7 @@ src/
  ├── ingestion/
  ├── transformation/
  ├── serving/
+ ├── utils/
 
 dags/
 ```
@@ -52,7 +53,8 @@ dags/
 1. Generate raw offshore operational data  
 2. Store raw data in Bronze layer  
 3. Clean and enrich data into Silver layer  
-4. Aggregate business metrics into Gold layer  
+4. Validate data quality  
+5. Aggregate business metrics into Gold layer  
 
 ---
 
@@ -65,21 +67,62 @@ python src/pipeline.py
 
 ---
 
+## ▶️ Running in Google Colab
+
+You can run this project directly in Google Colab without any local setup:
+
+```python
+!pip install polars pandas pyarrow
+!git clone https://github.com/SEU_USUARIO/offshore-data-platform.git
+%cd offshore-data-platform
+!python src/pipeline.py
+```
+
+This will execute the full pipeline, including:
+- Data ingestion (Bronze)
+- Data transformation (Silver)
+- Data validation
+- Data aggregation (Gold)
+
+---
+
 ## 📊 Example Output
 
 The Gold layer provides aggregated insights such as:
 - Average operation time  
 - Depth analysis  
 - Pressure peaks by event type  
+- Event distribution  
+
+---
+
+## 🧪 Data Quality
+
+Basic validation checks are implemented between Silver and Gold layers to ensure:
+- No empty datasets  
+- Valid depth values  
+- Consistent operation time metrics  
+
+---
+
+## 🐳 Docker Support
+
+Run the pipeline in a containerized environment:
+
+```
+docker build -t offshore-pipeline .
+docker run offshore-pipeline
+```
 
 ---
 
 ## 🧪 Future Improvements
 
-- Data quality validation (Great Expectations)  
-- Docker containerization  
+- Advanced data quality validation (Great Expectations)  
 - Cloud deployment (AWS / Azure)  
 - Real-time streaming (Kafka)  
+- Integration with Databricks / Delta Lake  
+- Data catalog and governance  
 
 ---
 
