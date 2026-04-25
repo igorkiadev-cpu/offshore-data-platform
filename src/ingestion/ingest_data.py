@@ -22,4 +22,4 @@ def save_bronze():
     print(f"Bronze data saved at {path}")
 
 if __name__ == "__main__":
-    save_bronze().
+    save_bronze()
