@@ -1,3 +1,5 @@
+def generate_data(n=1000):
+    print("🔥 NOVA VERSÃO DO INGESTION RODANDO 🔥")
 import pandas as pd
 import numpy as np
 import os
